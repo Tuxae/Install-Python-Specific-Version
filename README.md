@@ -1,11 +1,11 @@
 ## Usage
 
-'''bash
+```bash
 chmod u+x install_python.sh
 apt install make gcc zlib1g-dev
 #Exemple
 ./install_python.sh 3.6.4
-'''
+```
 
 ## Install a specific version of Python on your system (without root)
 
