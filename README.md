@@ -2,7 +2,7 @@
 
 '''bash
 chmod u+x install_python.sh
-apt install make gcc
+apt install make gcc zlib1g-dev
 #Exemple
 ./install_python.sh 3.6.4
 '''
