@@ -2,7 +2,7 @@
 
 URL=http://www.python.org/ftp/python
 
-if [ $# < 1 ]
+if [ $# -lt 1 ]
   then
     echo "Usage : ./install_python.sh python-version <custom_path:optional>"
     echo "Example : ./install_python.sh 3.6.3"
