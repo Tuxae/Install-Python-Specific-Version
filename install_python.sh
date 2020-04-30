@@ -2,12 +2,14 @@
 
 URL=http://www.python.org/ftp/python
 
-if [ $# -ne 1 ]
+if [ $# < 1 ]
   then
-    echo "Usage : ./install_python.sh python-version"
+    echo "Usage : ./install_python.sh python-version <custom_path:optional>"
     echo "Example : ./install_python.sh 3.6.3"
+    echo "Example : ./install_python.sh 3.6.3 /home/tuxae/python3.6.3"
   else
     py_version=$1
+    prefix=$2
     if [ -f Python-$py_version.tgz ]; then
 	echo "Python-$py_version.tgz exists! Have you already run this script ? Aborting..."
         exit 1
@@ -31,7 +33,11 @@ if [ $# -ne 1 ]
     cd Python-$py_version
     mkdir ~/.localpython$py_version
     echo "Installation Python $py_version..."
-    ./configure --prefix=$HOME/.localpython$py_version
+    if [ -z "$prefix" ]
+      then
+        prefix=$HOME/.localpython$py_version
+    fi
+    ./configure --prefix=$prefix
     make
     make install
     echo
@@ -40,6 +46,6 @@ if [ $# -ne 1 ]
     echo "You can now use python $py_version in a virtual environment."
     echo
     echo "Example when using python3 :"
-    echo "virtualenv python-$py_version -p $HOME/.localpython$py_version/bin/python3"
+    echo "virtualenv python-$py_version -p $prefix/bin/python3"
     echo "source python-$py_version/bin/activate"
 fi
