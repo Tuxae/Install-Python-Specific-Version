@@ -20,3 +20,4 @@ Whether you want to install a specific version of Python on a shared hosting env
 you want to use another version in a virtual environment, 
 or you want to add a new kernel to your Jupyter
 you can use this shell script.
+ 
